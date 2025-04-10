@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/Api.csproj": {}
+    "C:\\Users\\jlucas13\\OneDrive\\Documents\\source\\Spring2025Repos\\mis221\\studenthelp\\ParivedaChallenge\\Api\\Api.csproj": {}
   },
   "projects": {
-    "/Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/Api.csproj": {
+    "C:\\Users\\jlucas13\\OneDrive\\Documents\\source\\Spring2025Repos\\mis221\\studenthelp\\ParivedaChallenge\\Api\\Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/Api.csproj",
+        "projectUniqueName": "C:\\Users\\jlucas13\\OneDrive\\Documents\\source\\Spring2025Repos\\mis221\\studenthelp\\ParivedaChallenge\\Api\\Api.csproj",
         "projectName": "Api",
-        "projectPath": "/Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/Api.csproj",
-        "packagesPath": "/Users/sydneymarch/.nuget/packages/",
-        "outputPath": "/Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/obj/",
+        "projectPath": "C:\\Users\\jlucas13\\OneDrive\\Documents\\source\\Spring2025Repos\\mis221\\studenthelp\\ParivedaChallenge\\Api\\Api.csproj",
+        "packagesPath": "C:\\Users\\jlucas13\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jlucas13\\OneDrive\\Documents\\source\\Spring2025Repos\\mis221\\studenthelp\\ParivedaChallenge\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/sydneymarch/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\jlucas13\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -62,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.12/libexec/sdk/8.0.112/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

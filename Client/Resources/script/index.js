@@ -2,6 +2,7 @@ async function handleOnLoad() {
     const raceApiUrl = "http://localhost:5251/api/race";
 
     try {
+        console.log("made it")
         const response = await fetch(raceApiUrl);
         const runners = await response.json();
         console.log(runners);
@@ -13,7 +14,9 @@ async function handleOnLoad() {
         } else {
             runners.forEach(runner => {
                 html += `<div class="runner-card">
-                    <p><b>Runner:</b> ${runner}</p>
+                    <p><b>Runner:</b> ${runner.name}</p>
+                    <p><b>Email:</b> ${runner.email}</p>
+                    <p><b>Phone:</b> ${runner.phone}</p>
                 </div>`;
             });
         }
