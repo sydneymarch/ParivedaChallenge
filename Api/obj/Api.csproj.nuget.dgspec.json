@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jlucas13\\OneDrive\\Documents\\source\\Spring2025Repos\\mis221\\studenthelp\\ParivedaChallenge\\Api\\Api.csproj": {}
+    "/Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jlucas13\\OneDrive\\Documents\\source\\Spring2025Repos\\mis221\\studenthelp\\ParivedaChallenge\\Api\\Api.csproj": {
+    "/Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jlucas13\\OneDrive\\Documents\\source\\Spring2025Repos\\mis221\\studenthelp\\ParivedaChallenge\\Api\\Api.csproj",
+        "projectUniqueName": "/Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/Api.csproj",
         "projectName": "Api",
-        "projectPath": "C:\\Users\\jlucas13\\OneDrive\\Documents\\source\\Spring2025Repos\\mis221\\studenthelp\\ParivedaChallenge\\Api\\Api.csproj",
-        "packagesPath": "C:\\Users\\jlucas13\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jlucas13\\OneDrive\\Documents\\source\\Spring2025Repos\\mis221\\studenthelp\\ParivedaChallenge\\Api\\obj\\",
+        "projectPath": "/Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/Api.csproj",
+        "packagesPath": "/Users/sydneymarch/.nuget/packages/",
+        "outputPath": "/Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jlucas13\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/sydneymarch/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,17 +32,20 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.104.2, )"
+            },
+            "Microsoft.OpenApi": {
+              "target": "Package",
+              "version": "[1.6.14, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
@@ -67,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet@8/8.0.12/libexec/sdk/8.0.112/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

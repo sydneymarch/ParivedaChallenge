@@ -1,53 +1,55 @@
 using Microsoft.Extensions.FileProviders;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// services
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+});
 
-builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("OpenPolicy",
-    builder =>
+    options.AddPolicy("AllowAll", policy =>
     {
-        builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// static file root: ../Client/Resources
+var staticFilePath = Path.Combine(
+    Directory.GetParent(Directory.GetCurrentDirectory())!.FullName,
+    "Client", "Resources"
+);
+
 app.UseDefaultFiles(new DefaultFilesOptions
 {
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(Directory.GetCurrentDirectory(), "../Client/Resources")),
+    FileProvider = new PhysicalFileProvider(staticFilePath),
     RequestPath = ""
 });
 
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new PhysicalFileProvider(
-        Path.Combine(Directory.GetCurrentDirectory(), "../Client/Resources")),
+    FileProvider = new PhysicalFileProvider(staticFilePath),
     RequestPath = ""
 });
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-
 app.UseHttpsRedirection();
-
+app.UseCors("AllowAll"); 
 app.UseAuthorization();
 
-app.UseCors("OpenPolicy");
-
 app.MapControllers();
-
 app.Run();
