@@ -7,7 +7,6 @@ namespace api.Services
     {
         public static RunnerRace AddRace(List<RunnerRace> races, RunnerRace newRace)
         {
-            // Replace race if it already exists by name and email
             for (int i = 0; i < races.Count; i++)
             {
                 if (races[i].Email == newRace.Email && races[i].RaceName == newRace.RaceName)
@@ -18,15 +17,8 @@ namespace api.Services
                 }
             }
 
-            if (newRace.AidStations == null)
-            {
-                newRace.AidStations = new List<AidStation>();
-            }
-
-            if (newRace.SharedWithEmails == null)
-            {
-                newRace.SharedWithEmails = new List<string>();
-            }
+            if (newRace.AidStations == null) newRace.AidStations = new List<AidStation>();
+            if (newRace.SharedWithEmails == null) newRace.SharedWithEmails = new List<string>();
 
             RecalculateTotals(newRace);
             races.Add(newRace);
@@ -42,7 +34,6 @@ namespace api.Services
             race.AidStations.Add(station);
             RecalculateTotals(race);
             RaceUtility.SaveRacesToDisk(races);
-
             return true;
         }
 
@@ -55,29 +46,13 @@ namespace api.Services
             race.AidStations[index].DelayShiftMinutes = delayShiftMinutes;
             race.AidStations[index].PaceAdjustment = paceAdjustment;
 
-            DateTime baseTime = race.StartTime;
-            for (int i = 0; i <= index; i++)
-            {
-                double pace = race.AidStations[i].PredictedPace + race.AidStations[i].PaceAdjustment;
-                double miles = race.AidStations[i].MilesFromLast;
-                baseTime = baseTime.AddMinutes(pace * miles);
-                baseTime = baseTime.AddMinutes(race.AidStations[i].DelayShiftMinutes);
-            }
-
-            for (int i = index + 1; i < race.AidStations.Count; i++)
-            {
-                double pace = race.AidStations[i].PredictedPace + race.AidStations[i].PaceAdjustment;
-                double miles = race.AidStations[i].MilesFromLast;
-                baseTime = baseTime.AddMinutes(pace * miles);
-                baseTime = baseTime.AddMinutes(race.AidStations[i].DelayShiftMinutes);
-                race.AidStations[i].EstimatedArrival = baseTime;
-            }
+            TimeSpan delay = TimeSpan.FromMinutes(delayShiftMinutes);
+            RaceUtility.AdjustFutureAidStations(race, index, delay, paceAdjustment);
 
             RaceUtility.UpdateRaceStats(race);
             RaceUtility.SaveRacesToDisk(races);
             return true;
         }
-
 
         public static bool UpdateAidStationInfo(List<RunnerRace> races, string email, int index, AidStation updated)
         {
@@ -100,6 +75,7 @@ namespace api.Services
                 race.AidStations[0].EstimatedArrival = race.StartTime.AddMinutes(
                     race.AidStations[0].MilesFromLast * race.AidStations[0].PredictedPace
                 );
+
                 if (race.AidStations.Count > 1)
                 {
                     RaceUtility.ResetFutureAidStations(race, 0);
@@ -114,10 +90,7 @@ namespace api.Services
         {
             for (int i = 0; i < races.Count; i++)
             {
-                if (races[i].Email == email)
-                {
-                    return races[i];
-                }
+                if (races[i].Email == email) return races[i];
             }
             return null;
         }
@@ -180,7 +153,6 @@ namespace api.Services
             race.AidStations.RemoveAt(index);
             RecalculateTotals(race);
             RaceUtility.SaveRacesToDisk(races);
-
             return true;
         }
 

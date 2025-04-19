@@ -27,7 +27,7 @@
       "MilesIn": 7,
       "MilesFromLast": 4,
       "PredictedPace": 10,
-      "EstimatedArrival": "2025-04-18T16:36:00",
+      "EstimatedArrival": "2025-04-18T21:36:00Z",
       "Log": {
         "Food": null,
         "Drink": null,
@@ -42,12 +42,12 @@
       "MilesIn": 9,
       "MilesFromLast": 2,
       "PredictedPace": 11,
-      "EstimatedArrival": "2025-04-18T17:02:00",
+      "EstimatedArrival": "2025-04-18T22:00:00Z",
       "Log": {
         "Food": null,
         "Drink": null,
         "Notes": null,
-        "ArrivalTime": "0001-01-01T00:00:00"
+        "ArrivalTime": "2025-04-18T20:56:00Z"
       },
       "DelayShiftMinutes": 0,
       "PaceAdjustment": 0
@@ -57,7 +57,7 @@
       "MilesIn": 14,
       "MilesFromLast": 5,
       "PredictedPace": 15,
-      "EstimatedArrival": "2025-04-18T18:17:00",
+      "EstimatedArrival": "2025-04-18T23:20:00Z",
       "Log": {
         "Food": null,
         "Drink": null,
