@@ -1,0 +1,57 @@
+{
+  "ID": 0,
+  "RunnerName": "jim march",
+  "Email": "jim@jimmarch.com",
+  "RaceName": "warrior dash",
+  "ProjectedPace": 10.083333333333334,
+  "TotalDistance": 10.7,
+  "StartTime": "2025-04-20T09:11:00",
+  "AidStations": [
+    {
+      "Name": "sherwood forrest",
+      "MilesIn": 3.5,
+      "MilesFromLast": 3.5,
+      "PredictedPace": 10,
+      "EstimatedArrival": "2025-04-20T14:46:00Z",
+      "Log": {
+        "Food": "banana",
+        "Drink": "hoist",
+        "Notes": null,
+        "ArrivalTime": "2025-04-20T14:48:00Z"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 1
+    },
+    {
+      "Name": "champion rd",
+      "MilesIn": 7.5,
+      "MilesFromLast": 4,
+      "PredictedPace": 10.5,
+      "EstimatedArrival": "2025-04-20T15:32:00Z",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "2025-04-20T14:48:00Z"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "hotel rd",
+      "MilesIn": 10.7,
+      "MilesFromLast": 3.2,
+      "PredictedPace": 9.75,
+      "EstimatedArrival": "2025-04-20T16:03:12Z",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "2025-04-20T14:48:00Z"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    }
+  ],
+  "SharedWithEmails": []
+}

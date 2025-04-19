@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/index.css">
-    <title>Runner Dashboard</title>
+  <meta charset="UTF-8" />
+  <title>CrewMate Dashboard</title>
+  <link rel="stylesheet" href="./style/global.css" />
 </head>
-<body onload = handleOnLoad()>
-    <div class="polaroid" id="runners">Loading runners...</div>
-    <script type="text/javascript" src="./script/index.js"></script>
+<body>
+  <div class="container">
+    <h1>Welcome to CrewMate 🏃‍♀️</h1>
+
+    <div class="section">
+      <p><strong>Logged in as:</strong> <span id="userName">Loading...</span></p>
+    </div>
+
+    <div class="section race-header">
+      <h2>Your Races</h2>
+      <button id="addRaceBtn" class="tiny-btn">+ Add Race</button>
+    </div>
+
+    <ul id="raceList" class="button-list"></ul>
+
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+  </div>
+
+  <div id="addRaceOverlay" class="modal-overlay" style="display: none;">
+    <div class="modal">
+      <span class="close-btn" id="closeAddRace">&times;</span>
+      <h3>Create New Race</h3>
+      <form id="addRaceForm">
+        <input type="text" id="raceName" placeholder="Race name" required />
+        <input type="datetime-local" id="startTime" required />
+        <button type="submit">Create Race</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./script/index.js"></script>
 </body>
 </html>

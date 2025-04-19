@@ -116,16 +116,20 @@ public static void AdjustFutureAidStations(RunnerRace race, int fromIndex, TimeS
             return loadedRaces;
         }
 
-        public static void ExportRaceToExcel(RunnerRace race)
+        public static byte[] ExportRaceToExcelToBytes(RunnerRace race)
         {
             XLWorkbook workbook = new XLWorkbook();
+
+            // Create Race Summary sheet
             IXLWorksheet summarySheet = workbook.Worksheets.Add("Race Summary");
 
-            string title = race.RunnerName + "'s " + race.RaceName + "🏃💨";
+            string title = race.RunnerName + "'s " + race.RaceName + " 🏃💨";
             summarySheet.Cell(1, 1).Value = title;
+            summarySheet.Range("A1:B1").Merge();
             summarySheet.Cell(1, 1).Style.Font.Bold = true;
             summarySheet.Cell(1, 1).Style.Font.FontSize = 14;
             summarySheet.Cell(1, 1).Style.Fill.BackgroundColor = XLColor.LightSkyBlue;
+            summarySheet.Range("A1:B1").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
 
             summarySheet.Cell(2, 1).Value = "Runner Name";
             summarySheet.Cell(2, 2).Value = race.RunnerName;
@@ -138,25 +142,29 @@ public static void AdjustFutureAidStations(RunnerRace race, int fromIndex, TimeS
             summarySheet.Cell(6, 1).Value = "Projected Pace";
             summarySheet.Cell(6, 2).Value = race.ProjectedPace;
 
-            summarySheet.Range("A1:B1").Merge();
-            summarySheet.Range("A1:B1").Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
             summarySheet.Range("A2:A6").Style.Font.Bold = true;
             summarySheet.Columns("A", "B").AdjustToContents();
-            summarySheet.Column(1).Width = 35;
 
+            // Create Aid Station Breakdown sheet
             IXLWorksheet aidSheet = workbook.Worksheets.Add("Aid Station Breakdown");
-            string[] headers = { "Name 🏁", "Miles In 📏", "Pace 🕒", "ETA ⌚", "Arrival 🚶", "Food 🍞", "Drink 💧", "Notes 📝" };
 
-            for (int i = 0; i < headers.Length; i++)
+            string[] headers = {
+                "Name 🏁", "Miles In 📏", "Pace 🕒", "ETA ⌚", "Arrival 🚶", "Food 🍞", "Drink 💧", "Notes 📝"
+            };
+
+            int col = 0;
+            while (col < headers.Length)
             {
-                aidSheet.Cell(1, i + 1).Value = headers[i];
+                aidSheet.Cell(1, col + 1).Value = headers[col];
+                col = col + 1;
             }
 
             aidSheet.Range("A1:H1").Style.Fill.BackgroundColor = XLColor.LightGreen;
             aidSheet.Range("A1:H1").Style.Font.Bold = true;
             aidSheet.Row(1).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
 
-            for (int i = 0; i < race.AidStations.Count; i++)
+            int i = 0;
+            while (i < race.AidStations.Count)
             {
                 AidStation s = race.AidStations[i];
                 int row = i + 2;
@@ -165,29 +173,61 @@ public static void AdjustFutureAidStations(RunnerRace race, int fromIndex, TimeS
                 aidSheet.Cell(row, 2).Value = s.MilesIn;
                 aidSheet.Cell(row, 3).Value = s.PredictedPace;
                 aidSheet.Cell(row, 4).Value = s.EstimatedArrival.ToString("t");
-                aidSheet.Cell(row, 5).Value = s.Log.ArrivalTime == DateTime.MinValue ? "—" : s.Log.ArrivalTime.ToString("t");
-                aidSheet.Cell(row, 6).Value = s.Log.Food ?? "—";
-                aidSheet.Cell(row, 7).Value = s.Log.Drink ?? "—";
-                aidSheet.Cell(row, 8).Value = s.Log.Notes ?? "—";
+
+                if (s.Log.ArrivalTime == DateTime.MinValue)
+                {
+                    aidSheet.Cell(row, 5).Value = "—";
+                }
+                else
+                {
+                    aidSheet.Cell(row, 5).Value = s.Log.ArrivalTime.ToString("t");
+                }
+
+                if (s.Log.Food != null)
+                {
+                    aidSheet.Cell(row, 6).Value = s.Log.Food;
+                }
+                else
+                {
+                    aidSheet.Cell(row, 6).Value = "—";
+                }
+
+                if (s.Log.Drink != null)
+                {
+                    aidSheet.Cell(row, 7).Value = s.Log.Drink;
+                }
+                else
+                {
+                    aidSheet.Cell(row, 7).Value = "—";
+                }
+
+                if (s.Log.Notes != null)
+                {
+                    aidSheet.Cell(row, 8).Value = s.Log.Notes;
+                }
+                else
+                {
+                    aidSheet.Cell(row, 8).Value = "—";
+                }
+
+                i = i + 1;
             }
 
             aidSheet.RangeUsed().Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
             aidSheet.RangeUsed().Style.Border.InsideBorder = XLBorderStyleValues.Thin;
             aidSheet.Columns().AdjustToContents();
 
-            for (int col = 1; col <= 8; col++)
+            for (int c = 1; c <= 8; c = c + 1)
             {
-                aidSheet.Column(col).Width += 2;
+                aidSheet.Column(c).Width = aidSheet.Column(c).Width + 2;
             }
 
-            string folderPath = "exports";
-            Directory.CreateDirectory(folderPath);
-            string safeRunnerName = race.RunnerName.Replace(" ", "_");
-            string safeRaceName = race.RaceName.Replace(" ", "_");
-            string fileName = $"{safeRunnerName}-{safeRaceName}.xlsx";
-            string fullPath = Path.Combine(folderPath, fileName);
-
-            workbook.SaveAs(fullPath);
+            // Save workbook to memory and return bytes
+            using (MemoryStream stream = new MemoryStream())
+            {
+                workbook.SaveAs(stream);
+                return stream.ToArray();
+            }
         }
-    }
+   }
 }

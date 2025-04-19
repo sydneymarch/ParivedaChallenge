@@ -115,23 +115,34 @@ namespace MyApp.Namespace
         [HttpGet("{email}/{index}/export")]
         public IActionResult ExportRaceToExcel(string email, int index)
         {
-            // find the correct race
-            List<RunnerRace> userRaces = races.Where(r => r.Email == email).ToList();
+            List<RunnerRace> userRaces = new List<RunnerRace>();
 
-            if (userRaces.Count == 0)
+            for (int i = 0; i < races.Count; i++)
             {
-                return NotFound("No races found for this user.");
+                if (races[i].Email == email)
+                {
+                    userRaces.Add(races[i]);
+                }
             }
 
-            if (index < 0 || index >= userRaces.Count)
+            if (userRaces.Count == 0 || index < 0 || index >= userRaces.Count)
             {
-                return BadRequest("Invalid race index.");
+                return BadRequest("Invalid race index or email.");
             }
 
-            RunnerRace raceToExport = userRaces[index];
-            RaceUtility.ExportRaceToExcel(raceToExport); // export to Excel
+            RunnerRace race = userRaces[index];
+            byte[] fileBytes = RaceUtility.ExportRaceToExcelToBytes(race);
 
-            return Ok("Excel file exported successfully.");
+            if (fileBytes == null || fileBytes.Length == 0)
+            {
+                return StatusCode(500, "Could not create file.");
+            }
+
+            string safeRunner = race.RunnerName.Replace(" ", "_");
+            string safeRace = race.RaceName.Replace(" ", "_");
+            string fileName = safeRunner + "-" + safeRace + ".xlsx";
+
+            return File(fileBytes, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
         }
 
 

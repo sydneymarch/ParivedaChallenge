@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Create New Race</title>
+  <link rel="stylesheet" href="./style/global.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Create a New Race 🏁</h1>
+
+    <form id="createRaceForm">
+      <label for="raceName">Race Name:</label>
+      <input type="text" id="raceName" required />
+
+      <label for="startTime">Start Time:</label>
+      <input type="datetime-local" id="startTime" required />
+
+      <button type="submit">Create Race</button>
+    </form>
+
+    <button type="button" onclick="handleBack()">Back</button>
+  </div>
+
+  <script>
+    async function handleBack() {
+      const email = localStorage.getItem("email");
+
+      const response = await fetch(`/api/race/${email}`);
+      if (response.ok) {
+        const races = await response.json();
+        if (races.length > 0) {
+          window.location.href = "index.html";
+        } else {
+          alert("You don’t have any races yet!");
+        }
+      } else {
+        alert("Could not check race data. Try again later.");
+      }
+    }
+  </script>
+  <script src="./script/createRace.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - CrewMate</title>
+  <link rel="stylesheet" href="./style/global.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Create a CrewMate Account 🚀</h1>
+
+    <form id="registerForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" required />
+
+      <label for="role">Role:</label>
+      <select id="role" required>
+        <option value="">--Select--</option>
+        <option value="runner">Runner</option>
+        <option value="crew">Crew</option>
+      </select>
+
+      <button type="submit">📋 Register</button>
+    </form>
+
+    <p>Already have an account? <a href="login.html">Go to login</a></p>
+  </div>
+
+  <script src="./script/register.js"></script>
+</body>
+</html>
