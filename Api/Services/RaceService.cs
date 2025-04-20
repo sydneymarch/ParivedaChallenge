@@ -19,7 +19,7 @@ namespace api.Services
 
             if (newRace.AidStations == null) newRace.AidStations = new List<AidStation>();
             if (newRace.SharedWithEmails == null) newRace.SharedWithEmails = new List<string>();
-
+            newRace.StartTime = DateTime.SpecifyKind(newRace.StartTime, DateTimeKind.Local);
             RecalculateTotals(newRace);
             races.Add(newRace);
             RaceUtility.SaveRacesToDisk(races);
@@ -32,6 +32,24 @@ namespace api.Services
             if (race == null) return false;
 
             race.AidStations.Add(station);
+            int index = race.AidStations.Count - 1;
+
+            if (index == 0)
+            {
+                DateTime localStart = DateTime.SpecifyKind(race.StartTime, DateTimeKind.Local);
+                race.AidStations[0].EstimatedArrival = localStart.AddMinutes(
+                    station.MilesFromLast * station.PredictedPace
+                );
+            }
+            else
+            {
+                DateTime previousETA = race.AidStations[index - 1].EstimatedArrival;
+                double pace = station.PredictedPace;
+                double minutes = station.MilesFromLast * pace;
+
+                race.AidStations[index].EstimatedArrival = previousETA.AddMinutes(minutes);
+            }
+            RaceUtility.AdjustFutureAidStations(race, index, TimeSpan.Zero, 0);
             RecalculateTotals(race);
             RaceUtility.SaveRacesToDisk(races);
             return true;
@@ -72,7 +90,8 @@ namespace api.Services
             }
             else
             {
-                race.AidStations[0].EstimatedArrival = race.StartTime.AddMinutes(
+                DateTime localStart = DateTime.SpecifyKind(race.StartTime, DateTimeKind.Local);
+                race.AidStations[0].EstimatedArrival = localStart.AddMinutes(
                     race.AidStations[0].MilesFromLast * race.AidStations[0].PredictedPace
                 );
 
@@ -100,7 +119,7 @@ namespace api.Services
             RunnerRace race = FindRaceByEmail(races, email);
             if (race == null) return null;
 
-            DateTime referenceTime = race.StartTime;
+            DateTime referenceTime = DateTime.SpecifyKind(race.StartTime, DateTimeKind.Local);
 
             for (int i = race.AidStations.Count - 1; i >= 0; i--)
             {
@@ -152,6 +171,28 @@ namespace api.Services
 
             race.AidStations.RemoveAt(index);
             RecalculateTotals(race);
+
+            // if we removed any station except the last, reset future ETAs
+            if (index == 0)
+            {
+                if (race.AidStations.Count > 0)
+                {
+                    DateTime localStart = DateTime.SpecifyKind(race.StartTime, DateTimeKind.Local);
+                    race.AidStations[0].EstimatedArrival = localStart.AddMinutes(
+                        race.AidStations[0].MilesFromLast * race.AidStations[0].PredictedPace
+                    );
+
+                    if (race.AidStations.Count > 1)
+                    {
+                        RaceUtility.ResetFutureAidStations(race, 0);
+                    }
+                }
+            }
+            else if (index < race.AidStations.Count)
+            {
+                RaceUtility.ResetFutureAidStations(race, index - 1);
+            }
+
             RaceUtility.SaveRacesToDisk(races);
             return true;
         }

@@ -33,7 +33,7 @@ public static void AdjustFutureAidStations(RunnerRace race, int fromIndex, TimeS
 
         totalPaceAdjustment += current.PaceAdjustment;
         totalDelayMinutes += current.DelayShiftMinutes;
-
+        UpdateRaceStats(race);
     }
 }
 
@@ -68,7 +68,7 @@ public static void AdjustFutureAidStations(RunnerRace race, int fromIndex, TimeS
 
         public static void ResetFutureAidStations(RunnerRace race, int startIndex)
         {
-            DateTime baseTime = race.AidStations[startIndex].Log.ArrivalTime;
+            DateTime baseTime = DateTime.SpecifyKind(race.AidStations[startIndex].EstimatedArrival, DateTimeKind.Local);
 
             for (int i = startIndex + 1; i < race.AidStations.Count; i++)
             {
@@ -79,6 +79,7 @@ public static void AdjustFutureAidStations(RunnerRace race, int fromIndex, TimeS
                 baseTime = baseTime.AddMinutes(minutes);
                 race.AidStations[i].EstimatedArrival = baseTime;
             }
+            UpdateRaceStats(race);
         }
 
         public static void SaveRacesToDisk(List<RunnerRace> races)
@@ -136,7 +137,7 @@ public static void AdjustFutureAidStations(RunnerRace race, int fromIndex, TimeS
             summarySheet.Cell(3, 1).Value = "Race Name";
             summarySheet.Cell(3, 2).Value = race.RaceName;
             summarySheet.Cell(4, 1).Value = "Start Time";
-            summarySheet.Cell(4, 2).Value = race.StartTime.ToString("t");
+            summarySheet.Cell(4, 2).Value = race.StartTime.ToLocalTime().ToString("t");
             summarySheet.Cell(5, 1).Value = "Total Distance";
             summarySheet.Cell(5, 2).Value = race.TotalDistance;
             summarySheet.Cell(6, 1).Value = "Projected Pace";
@@ -172,7 +173,7 @@ public static void AdjustFutureAidStations(RunnerRace race, int fromIndex, TimeS
                 aidSheet.Cell(row, 1).Value = s.Name;
                 aidSheet.Cell(row, 2).Value = s.MilesIn;
                 aidSheet.Cell(row, 3).Value = s.PredictedPace;
-                aidSheet.Cell(row, 4).Value = s.EstimatedArrival.ToString("t");
+                aidSheet.Cell(row, 4).Value = s.EstimatedArrival.ToLocalTime().ToString("t");
 
                 if (s.Log.ArrivalTime == DateTime.MinValue)
                 {
@@ -180,7 +181,7 @@ public static void AdjustFutureAidStations(RunnerRace race, int fromIndex, TimeS
                 }
                 else
                 {
-                    aidSheet.Cell(row, 5).Value = s.Log.ArrivalTime.ToString("t");
+                    aidSheet.Cell(row, 5).Value = s.Log.ArrivalTime.ToLocalTime().ToString("t");
                 }
 
                 if (s.Log.Food != null)

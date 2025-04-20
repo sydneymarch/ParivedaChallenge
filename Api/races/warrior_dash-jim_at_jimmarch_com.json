@@ -2,52 +2,127 @@
   "ID": 0,
   "RunnerName": "jim march",
   "Email": "jim@jimmarch.com",
-  "RaceName": "warrior dash",
-  "ProjectedPace": 10.083333333333334,
-  "TotalDistance": 10.7,
-  "StartTime": "2025-04-20T09:11:00",
+  "RaceName": "Warrior Dash",
+  "ProjectedPace": 11.75,
+  "TotalDistance": 100,
+  "StartTime": "2025-04-26T08:00:00-05:00",
   "AidStations": [
     {
-      "Name": "sherwood forrest",
-      "MilesIn": 3.5,
-      "MilesFromLast": 3.5,
-      "PredictedPace": 10,
-      "EstimatedArrival": "2025-04-20T14:46:00Z",
-      "Log": {
-        "Food": "banana",
-        "Drink": "hoist",
-        "Notes": null,
-        "ArrivalTime": "2025-04-20T14:48:00Z"
-      },
-      "DelayShiftMinutes": 0,
-      "PaceAdjustment": 1
-    },
-    {
-      "Name": "champion rd",
-      "MilesIn": 7.5,
-      "MilesFromLast": 4,
-      "PredictedPace": 10.5,
-      "EstimatedArrival": "2025-04-20T15:32:00Z",
+      "Name": "Start",
+      "MilesIn": 0,
+      "MilesFromLast": 0,
+      "PredictedPace": 11,
+      "EstimatedArrival": "2025-04-26T08:00:00-05:00",
       "Log": {
         "Food": null,
         "Drink": null,
         "Notes": null,
-        "ArrivalTime": "2025-04-20T14:48:00Z"
+        "ArrivalTime": "0001-01-01T00:00:00"
       },
       "DelayShiftMinutes": 0,
       "PaceAdjustment": 0
     },
     {
-      "Name": "hotel rd",
-      "MilesIn": 10.7,
-      "MilesFromLast": 3.2,
-      "PredictedPace": 9.75,
-      "EstimatedArrival": "2025-04-20T16:03:12Z",
+      "Name": "Mile 10 - Creek Crossing",
+      "MilesIn": 10,
+      "MilesFromLast": 10,
+      "PredictedPace": 11,
+      "EstimatedArrival": "2025-04-26T09:50:00-05:00",
+      "Log": {
+        "Food": "PB\u0026J",
+        "Drink": "Tailwind",
+        "Notes": "Soaked Shoes",
+        "ArrivalTime": "2025-04-25T14:55:00Z"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Mile 25 - Tree Line",
+      "MilesIn": 25,
+      "MilesFromLast": 15,
+      "PredictedPace": 11.5,
+      "EstimatedArrival": "2025-04-26T12:42:30-05:00",
       "Log": {
         "Food": null,
         "Drink": null,
         "Notes": null,
-        "ArrivalTime": "2025-04-20T14:48:00Z"
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Mile 40 - Bluff Aid",
+      "MilesIn": 40,
+      "MilesFromLast": 15,
+      "PredictedPace": 12,
+      "EstimatedArrival": "2025-04-26T15:42:30-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Mile 60 - Campground",
+      "MilesIn": 60,
+      "MilesFromLast": 20,
+      "PredictedPace": 13,
+      "EstimatedArrival": "2025-04-26T20:02:30-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Mile 80 - Ridge Outpost",
+      "MilesIn": 80,
+      "MilesFromLast": 20,
+      "PredictedPace": 12.5,
+      "EstimatedArrival": "2025-04-27T00:12:30-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Mile 95 - Final Stretch",
+      "MilesIn": 95,
+      "MilesFromLast": 15,
+      "PredictedPace": 12,
+      "EstimatedArrival": "2025-04-27T03:12:30-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Finish Line",
+      "MilesIn": 100,
+      "MilesFromLast": 5,
+      "PredictedPace": 11,
+      "EstimatedArrival": "2025-04-27T04:07:30-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
       },
       "DelayShiftMinutes": 0,
       "PaceAdjustment": 0

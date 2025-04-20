@@ -132,7 +132,7 @@ window.onload = function () {
 
     let arrivalTime = document.getElementById("arrivalTimeInput").value;
     if (!arrivalTime) {
-      arrivalTime = new Date().toISOString();
+      arrivalTime = new Date().toLocaleString("sv-SE");
     } else {
       arrivalTime = new Date(arrivalTime).toISOString();
     }
@@ -257,7 +257,7 @@ function displayAidStations(aidStations) {
       </td>
       <td>${station.milesFromLast}</td>
       <td>${displayPace.toFixed(2)}</td>
-      <td>${formatTime(eta.toISOString())}</td>
+      <td>${formatTime(eta.toLocaleString("sv-SE"))}</td>
       <td>${hasArrival ? formatTime(station.log.arrivalTime) : "—"}</td>
       <td>${station.log?.food ?? "—"}</td>
       <td>${station.log?.drink ?? "—"}</td>
