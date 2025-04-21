@@ -75,3 +75,4 @@ C:/Users/jlucas13/OneDrive/Documents/source/Spring2025Repos/mis221/studenthelp/P
 /Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/bin/Debug/net8.0/users/sydneymarch123_at_gmail_dot_com.json
 /Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/bin/Debug/net8.0/users/joshua_at_email_dot_com.json
 /Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/bin/Debug/net8.0/users/jim_at_jimmarch_dot_com.json
+/Users/sydneymarch/Documents/MIS221/Pariveda Challenge/Api/bin/Debug/net8.0/races/warrior_dash-jim_at_jimmarch_com.json

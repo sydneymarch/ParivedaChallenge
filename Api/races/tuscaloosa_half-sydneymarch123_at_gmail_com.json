@@ -1,0 +1,27 @@
+{
+  "ID": 0,
+  "RunnerName": "Sydney March",
+  "Email": "sydneymarch123@gmail.com",
+  "RaceName": "Tuscaloosa Half",
+  "ProjectedPace": 10,
+  "TotalDistance": 3.5,
+  "StartTime": "2025-05-24T06:00:00-05:00",
+  "AidStations": [
+    {
+      "Name": "Aid 1",
+      "MilesIn": 0,
+      "MilesFromLast": 3.5,
+      "PredictedPace": 10,
+      "EstimatedArrival": "2025-05-24T06:35:00-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    }
+  ],
+  "SharedWithEmails": []
+}

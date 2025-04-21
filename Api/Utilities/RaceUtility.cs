@@ -6,36 +6,40 @@ namespace api.Utilities
 {
     public class RaceUtility
     {
-public static void AdjustFutureAidStations(RunnerRace race, int fromIndex, TimeSpan thisDelay, double thisPaceAdjustment)
-{
-    if (race == null || fromIndex < 0 || fromIndex >= race.AidStations.Count - 1)
-    {
-        return;
-    }
+        public static void AdjustFutureAidStations(RunnerRace race, int fromIndex, TimeSpan thisDelay, double thisPaceAdjustment)
+        {
+            if (race == null || fromIndex < 0 || fromIndex >= race.AidStations.Count - 1)
+            {
+                return;
+            }
 
-    DateTime baseTime = race.AidStations[fromIndex].EstimatedArrival;
-    int totalDelayMinutes = thisDelay.Minutes;
-    double totalPaceAdjustment = thisPaceAdjustment;
+            DateTime baseTime = race.AidStations[fromIndex].EstimatedArrival;
 
-    for (int i = fromIndex + 1; i < race.AidStations.Count; i++)
-    {
-        AidStation current = race.AidStations[i];
+            for (int i = fromIndex + 1; i < race.AidStations.Count; i++)
+            {
+                AidStation current = race.AidStations[i];
 
-        double pace = current.PredictedPace + totalPaceAdjustment;
-        double legMinutes = current.MilesFromLast * pace;
-        TimeSpan legTime = TimeSpan.FromMinutes(legMinutes);
+                double pace = current.PredictedPace + thisPaceAdjustment;
+                double legMinutes = current.MilesFromLast * pace;
+                TimeSpan legTime = TimeSpan.FromMinutes(legMinutes);
 
-        baseTime = baseTime.Add(legTime);
+                // Only apply delay to the *first* future station
+                if (i == fromIndex + 1)
+                {
+                    baseTime = baseTime.Add(legTime).Add(thisDelay);
+                }
+                else
+                {
+                    baseTime = baseTime.Add(legTime); // no delay after the next one
+                }
 
-        baseTime = baseTime.AddMinutes(totalDelayMinutes);
+                current.EstimatedArrival = baseTime;
+            }
 
-        current.EstimatedArrival = baseTime;
+            UpdateRaceStats(race);
+        }
 
-        totalPaceAdjustment += current.PaceAdjustment;
-        totalDelayMinutes += current.DelayShiftMinutes;
-        UpdateRaceStats(race);
-    }
-}
+
 
 
         public static void UpdateRaceStats(RunnerRace race)
