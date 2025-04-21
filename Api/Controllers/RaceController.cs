@@ -39,7 +39,7 @@ namespace MyApp.Namespace
             return CreatedAtAction(nameof(GetRacesByRunner), new { email = race.Email }, race); // return new race
         }
 
-        // PUT: api/race/{email}/aidstations
+        // POST: api/race/{email}/aidstations
         [HttpPost("{email}/aidstations")]
         public IActionResult AddAidStation(string email, [FromBody] AidStation station)
         {

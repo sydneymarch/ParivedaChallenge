@@ -35,14 +35,14 @@
         "ArrivalTime": "2025-04-25T14:55:00Z"
       },
       "DelayShiftMinutes": 5,
-      "PaceAdjustment": 0
+      "PaceAdjustment": 1
     },
     {
       "Name": "Mile 25 - Tree Line",
       "MilesIn": 25,
       "MilesFromLast": 15,
       "PredictedPace": 11.5,
-      "EstimatedArrival": "2025-04-26T12:51:30-05:00",
+      "EstimatedArrival": "2025-04-26T13:04:30-05:00",
       "Log": {
         "Food": null,
         "Drink": null,
@@ -57,7 +57,7 @@
       "MilesIn": 40,
       "MilesFromLast": 15,
       "PredictedPace": 12,
-      "EstimatedArrival": "2025-04-26T15:58:30-05:00",
+      "EstimatedArrival": "2025-04-26T16:19:30-05:00",
       "Log": {
         "Food": null,
         "Drink": null,
@@ -72,7 +72,7 @@
       "MilesIn": 60,
       "MilesFromLast": 20,
       "PredictedPace": 13,
-      "EstimatedArrival": "2025-04-26T20:25:30-05:00",
+      "EstimatedArrival": "2025-04-26T20:59:30-05:00",
       "Log": {
         "Food": null,
         "Drink": null,
@@ -87,7 +87,7 @@
       "MilesIn": 80,
       "MilesFromLast": 20,
       "PredictedPace": 12.5,
-      "EstimatedArrival": "2025-04-27T00:42:30-05:00",
+      "EstimatedArrival": "2025-04-27T01:29:30-05:00",
       "Log": {
         "Food": null,
         "Drink": null,
@@ -102,7 +102,7 @@
       "MilesIn": 95,
       "MilesFromLast": 15,
       "PredictedPace": 12,
-      "EstimatedArrival": "2025-04-27T03:49:30-05:00",
+      "EstimatedArrival": "2025-04-27T04:44:30-05:00",
       "Log": {
         "Food": null,
         "Drink": null,
@@ -117,7 +117,7 @@
       "MilesIn": 100,
       "MilesFromLast": 5,
       "PredictedPace": 11,
-      "EstimatedArrival": "2025-04-27T04:51:30-05:00",
+      "EstimatedArrival": "2025-04-27T05:44:30-05:00",
       "Log": {
         "Food": null,
         "Drink": null,

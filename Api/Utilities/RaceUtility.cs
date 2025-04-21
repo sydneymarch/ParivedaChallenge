@@ -39,9 +39,6 @@ namespace api.Utilities
             UpdateRaceStats(race);
         }
 
-
-
-
         public static void UpdateRaceStats(RunnerRace race)
         {
             double totalDistance = 0;

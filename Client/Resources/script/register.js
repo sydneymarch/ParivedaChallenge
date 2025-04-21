@@ -28,16 +28,16 @@ document.getElementById("registerForm").addEventListener("submit", async functio
       });
   
       if (response.ok) {
-        alert("✅ Registration successful! Redirecting to login...");
+        alert("Registration successful! Redirecting to login...");
         window.location.href = "login.html";
       } else if (response.status === 409) {
-        alert("❌ That email is already registered.");
+        alert("That email is already registered.");
       } else {
-        alert("⚠️ Something went wrong during registration.");
+        alert("Something went wrong during registration.");
       }
     } catch (error) {
       console.error("Error during registration:", error);
-      alert("⚠️ Could not register. Check your network or try again later.");
+      alert("Could not register. Check your network or try again later.");
     }
   });
   
