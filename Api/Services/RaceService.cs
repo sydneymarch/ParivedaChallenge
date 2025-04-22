@@ -145,6 +145,7 @@ namespace api.Services
                     referenceTime = race.AidStations[i].Log.ArrivalTime;
                     break; //can calculate ETA from this point
                 }
+            }
 
             for (int i = 0; i < race.AidStations.Count; i++)
             { //loop forward to find next aid station that hasn't been logged yet
