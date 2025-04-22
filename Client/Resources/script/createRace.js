@@ -4,7 +4,7 @@ window.onload = function () {
   };
   
   async function handleCreateRace(event) {
-    event.preventDefault(); // Stop the form from submitting normally
+    event.preventDefault(); //stop the page from refreshing
   
     const raceNameInput = document.getElementById("raceName");
     const startTimeInput = document.getElementById("startTime");

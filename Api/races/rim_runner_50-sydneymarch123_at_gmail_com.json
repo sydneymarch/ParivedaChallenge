@@ -1,0 +1,192 @@
+{
+  "ID": 0,
+  "RunnerName": "Sydney March",
+  "Email": "sydneymarch123@gmail.com",
+  "RaceName": "Rim Runner 50",
+  "ProjectedPace": 10.583333333333334,
+  "TotalDistance": 50.00000000000001,
+  "StartTime": "2025-04-24T05:55:00-05:00",
+  "AidStations": [
+    {
+      "Name": "Sherwood Forest",
+      "MilesIn": 3.5,
+      "MilesFromLast": 3.5,
+      "PredictedPace": 9.5,
+      "EstimatedArrival": "2025-04-24T06:28:15-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Sherwood Forest",
+      "MilesIn": 6.2,
+      "MilesFromLast": 2.7,
+      "PredictedPace": 10,
+      "EstimatedArrival": "2025-04-24T06:55:15-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Champion",
+      "MilesIn": 11.600000000000001,
+      "MilesFromLast": 5.4,
+      "PredictedPace": 10.5,
+      "EstimatedArrival": "2025-04-24T07:51:57-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Hotel Road",
+      "MilesIn": 16.1,
+      "MilesFromLast": 4.5,
+      "PredictedPace": 10,
+      "EstimatedArrival": "2025-04-24T08:36:57-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Champion",
+      "MilesIn": 22.6,
+      "MilesFromLast": 6.5,
+      "PredictedPace": 12,
+      "EstimatedArrival": "2025-04-24T09:54:57-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Repeat from Start Line",
+      "MilesIn": 26.200000000000003,
+      "MilesFromLast": 3.6,
+      "PredictedPace": 10,
+      "EstimatedArrival": "2025-04-24T10:30:57-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Sherwood Forest",
+      "MilesIn": 29.700000000000003,
+      "MilesFromLast": 3.5,
+      "PredictedPace": 10,
+      "EstimatedArrival": "2025-04-24T11:05:57-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Sherwood Forest",
+      "MilesIn": 32.400000000000006,
+      "MilesFromLast": 2.7,
+      "PredictedPace": 10,
+      "EstimatedArrival": "2025-04-24T11:32:57-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Champion",
+      "MilesIn": 35.60000000000001,
+      "MilesFromLast": 3.2,
+      "PredictedPace": 11,
+      "EstimatedArrival": "2025-04-24T12:08:09-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Hotel Road",
+      "MilesIn": 39.900000000000006,
+      "MilesFromLast": 4.3,
+      "PredictedPace": 10.5,
+      "EstimatedArrival": "2025-04-24T12:53:17.9999999-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Champion",
+      "MilesIn": 46.400000000000006,
+      "MilesFromLast": 6.5,
+      "PredictedPace": 12.5,
+      "EstimatedArrival": "2025-04-24T14:14:32.9999999-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    },
+    {
+      "Name": "Finish",
+      "MilesIn": 50.00000000000001,
+      "MilesFromLast": 3.6,
+      "PredictedPace": 11,
+      "EstimatedArrival": "2025-04-24T14:54:08.9999999-05:00",
+      "Log": {
+        "Food": null,
+        "Drink": null,
+        "Notes": null,
+        "ArrivalTime": "0001-01-01T00:00:00"
+      },
+      "DelayShiftMinutes": 0,
+      "PaceAdjustment": 0
+    }
+  ],
+  "SharedWithEmails": []
+}
